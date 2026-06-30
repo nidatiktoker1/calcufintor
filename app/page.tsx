@@ -3,7 +3,9 @@ import Link from 'next/link'
 import HeroSection from '@/components/HeroSection'
 import CityCard from '@/components/CityCard'
 import CalculatorCard from '@/components/CalculatorCard'
+import BlogCard from '@/components/blog/BlogCard'
 import { usaData } from '@/data/usa'
+import { blogPosts } from '@/data/blog/posts'
 
 export const metadata: Metadata = {
   title: 'USA Financial Calculators 2026 | CALCUFINTOR',
@@ -95,6 +97,22 @@ export default function HomePage() {
               View all 25 US cities →
             </Link>
           </div>
+        </div>
+      </section>
+
+      {/* Blog */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="text-center mb-10">
+          <h2 className="text-3xl font-bold font-heading text-gray-900 mb-2">Latest Insights</h2>
+          <p className="text-gray-600">Data-driven articles on cost of living and financial planning</p>
+        </div>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {blogPosts.slice(0, 3).map(post => <BlogCard key={post.slug} post={post} />)}
+        </div>
+        <div className="text-center mt-6">
+          <Link href="/blog" className="text-primary font-medium hover:underline text-sm">
+            View all articles →
+          </Link>
         </div>
       </section>
 

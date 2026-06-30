@@ -32,6 +32,9 @@ export default function Footer() {
             <p className="text-gray-500 text-xs">
               Free financial calculators for USA, Canada, UK, and Australia.
             </p>
+            <Link href="/blog" className="text-primary hover:text-blue-300 text-sm transition-colors font-medium inline-block mt-3">
+              Read our Blog →
+            </Link>
           </div>
 
           {/* Calculators */}

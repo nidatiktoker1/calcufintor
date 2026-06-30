@@ -3,6 +3,7 @@ import { usaData } from '@/data/usa'
 import { canadaData } from '@/data/canada'
 import { ukData } from '@/data/uk'
 import { australiaData } from '@/data/australia'
+import { blogPosts } from '@/data/blog/posts'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const BASE = 'https://calcufintor.vercel.app'
@@ -11,6 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages: MetadataRoute.Sitemap = [
     { url: BASE, lastModified: now, changeFrequency: 'weekly', priority: 1.0 },
     { url: `${BASE}/calculators`, lastModified: now, changeFrequency: 'weekly', priority: 0.9 },
+    { url: `${BASE}/blog`, lastModified: now, changeFrequency: 'weekly', priority: 0.8 },
     // Country overviews
     { url: `${BASE}/countries/usa`, lastModified: now, changeFrequency: 'monthly', priority: 0.9 },
     { url: `${BASE}/countries/canada`, lastModified: now, changeFrequency: 'monthly', priority: 0.9 },
@@ -58,11 +60,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }))
 
+  const blogPages: MetadataRoute.Sitemap = blogPosts.map(post => ({
+    url: `${BASE}/blog/${post.slug}`,
+    lastModified: new Date(post.updatedDate),
+    changeFrequency: 'monthly',
+    priority: 0.7,
+  }))
+
   return [
     ...staticPages,
     ...usaCityPages,
     ...canadaCityPages,
     ...ukCityPages,
     ...australiaCityPages,
+    ...blogPages,
   ]
 }

@@ -15,6 +15,10 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  verification: {
+    // Paste your Google Search Console verification code here, e.g.:
+    // google: 'abc123xyz',
+  },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

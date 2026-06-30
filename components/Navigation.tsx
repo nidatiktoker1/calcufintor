@@ -43,6 +43,7 @@ export default function Navigation() {
           {/* Desktop nav */}
           <div className="hidden md:flex items-center gap-6">
             <Link href="/" className={`hover:text-primary transition-colors text-sm ${isActive('/')}`}>Home</Link>
+            <Link href="/blog" className={`hover:text-primary transition-colors text-sm ${isActive('/blog')}`}>Blog</Link>
 
             {/* Calculators dropdown */}
             <div className="relative" onMouseEnter={() => setCalcOpen(true)} onMouseLeave={() => setCalcOpen(false)}>
@@ -115,6 +116,7 @@ export default function Navigation() {
           <div className="md:hidden border-t border-gray-200 py-3 max-h-96 overflow-y-auto">
             <div className="flex flex-col gap-1">
               <Link href="/" className="block px-4 py-2 text-gray-700 hover:text-primary hover:bg-blue-50 rounded-md text-sm">Home</Link>
+              <Link href="/blog" className="block px-4 py-2 text-gray-700 hover:text-primary hover:bg-blue-50 rounded-md text-sm">Blog</Link>
 
               <p className="px-4 py-1 text-xs text-gray-400 font-semibold uppercase tracking-wider mt-2">Calculators</p>
               {CALCULATORS.map(c => (

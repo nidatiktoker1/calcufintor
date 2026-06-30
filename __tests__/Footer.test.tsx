@@ -12,30 +12,32 @@ describe('Footer', () => {
     expect(screen.getByText('Calculate Your Financial Future, Everywhere')).toBeInTheDocument()
   })
 
-  it('shows all 3 calculator links', () => {
+  it('shows Living Wage calculator link', () => {
     render(<Footer />)
-    expect(screen.getByRole('link', { name: /living wage calculator/i })).toBeInTheDocument()
-    expect(screen.getByRole('link', { name: /cost of living calculator/i })).toBeInTheDocument()
-    expect(screen.getByRole('link', { name: /salary comparison tool/i })).toBeInTheDocument()
+    expect(screen.getByRole('link', { name: /living wage/i })).toBeInTheDocument()
   })
 
-  it('shows all 5 city links', () => {
+  it('shows all 4 country links', () => {
     render(<Footer />)
-    expect(screen.getByRole('link', { name: /new york city/i })).toBeInTheDocument()
-    expect(screen.getByRole('link', { name: /los angeles/i })).toBeInTheDocument()
-    expect(screen.getByRole('link', { name: /chicago/i })).toBeInTheDocument()
-    expect(screen.getByRole('link', { name: /houston/i })).toBeInTheDocument()
-    expect(screen.getByRole('link', { name: /phoenix/i })).toBeInTheDocument()
+    expect(screen.getByRole('link', { name: /united states/i })).toBeInTheDocument()
+    expect(screen.getByRole('link', { name: /canada/i })).toBeInTheDocument()
+    expect(screen.getByRole('link', { name: /united kingdom/i })).toBeInTheDocument()
+    expect(screen.getByRole('link', { name: /australia/i })).toBeInTheDocument()
   })
 
-  it('shows privacy policy link', () => {
+  it('shows About link', () => {
     render(<Footer />)
-    expect(screen.getByRole('link', { name: /privacy policy/i })).toBeInTheDocument()
+    expect(screen.getByRole('link', { name: /^about$/i })).toBeInTheDocument()
   })
 
-  it('shows terms of service link', () => {
+  it('shows Privacy link', () => {
     render(<Footer />)
-    expect(screen.getByRole('link', { name: /terms of service/i })).toBeInTheDocument()
+    expect(screen.getByRole('link', { name: /privacy/i })).toBeInTheDocument()
+  })
+
+  it('shows Terms link', () => {
+    render(<Footer />)
+    expect(screen.getByRole('link', { name: /terms/i })).toBeInTheDocument()
   })
 
   it('shows copyright text with current year', () => {

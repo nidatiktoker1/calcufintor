@@ -4,12 +4,9 @@ import Breadcrumb from '@/components/Breadcrumb'
 
 export const metadata: Metadata = {
   title: 'Financial Calculators USA 2026 | CALCUFINTOR',
-  description: 'Free USA financial calculators: living wage, cost of living comparison, and salary tools. Data for New York, LA, Chicago, Houston, Phoenix.',
+  description: 'Free USA financial calculators: living wage, cost of living, salary comparison, tax, rent affordability, hourly to salary, and savings rate tools.',
   alternates: { canonical: 'https://calcufintor.vercel.app/calculators' },
-  openGraph: {
-    title: 'Financial Calculators USA 2026 | CALCUFINTOR',
-    url: 'https://calcufintor.vercel.app/calculators',
-  },
+  openGraph: { title: 'Financial Calculators USA 2026 | CALCUFINTOR', url: 'https://calcufintor.vercel.app/calculators' },
 }
 
 const CALCULATORS = [
@@ -22,7 +19,7 @@ const CALCULATORS = [
   },
   {
     title: 'Cost of Living Calculator',
-    description: 'Compare the cost of living between major US cities. Find out how much more (or less) you need in a new city.',
+    description: 'Compare the cost of living between major US cities. Find out how much more or less you need in a new city.',
     href: '/calculators/cost-of-living',
     icon: '🏙️',
     keywords: ['cost comparison', 'relocation', 'city budget'],
@@ -32,32 +29,48 @@ const CALCULATORS = [
     description: 'Calculate the equivalent salary you need in any US city to maintain your current standard of living.',
     href: '/calculators/salary-comparison',
     icon: '📊',
-    keywords: ['salary', 'pay', 'compensation adjustment'],
+    keywords: ['salary', 'pay', 'compensation'],
+  },
+  {
+    title: 'Tax Calculator',
+    description: 'Estimate your 2026 federal income tax, effective tax rate, take-home pay, and FICA taxes in seconds.',
+    href: '/calculators/tax-calculator',
+    icon: '🧾',
+    keywords: ['income tax', 'federal tax', 'take-home pay'],
+  },
+  {
+    title: 'Rent Affordability Calculator',
+    description: 'Find out how much rent you can afford in any US city based on the 30% rule. See which cities fit your budget.',
+    href: '/calculators/rent-affordability',
+    icon: '🏠',
+    keywords: ['rent', 'affordability', '30% rule'],
+  },
+  {
+    title: 'Hourly to Salary',
+    description: 'Convert any hourly wage to annual, monthly, weekly, and daily pay. Adjust hours per week and weeks per year.',
+    href: '/calculators/hourly-to-salary',
+    icon: '⏰',
+    keywords: ['hourly rate', 'annual salary', 'wage conversion'],
+  },
+  {
+    title: 'Savings Rate Calculator',
+    description: 'Calculate your savings rate, monthly savings, and estimated years to retirement using the 4% rule.',
+    href: '/calculators/savings-rate',
+    icon: '📈',
+    keywords: ['savings rate', 'FIRE', 'retirement'],
   },
 ]
-
-const schema = {
-  '@context': 'https://schema.org',
-  '@type': 'CollectionPage',
-  name: 'USA Financial Calculators',
-  url: 'https://calcufintor.vercel.app/calculators',
-  description: 'Living wage, cost of living, and salary comparison calculators for US cities',
-}
 
 export default function CalculatorsPage() {
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-        <Breadcrumb items={[
-          { label: 'Home', href: '/' },
-          { label: 'Calculators' },
-        ]} />
+        <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'Calculators' }]} />
         <h1 className="text-3xl sm:text-4xl font-bold font-heading text-gray-900 mb-3">
-          USA Financial Calculators
+          USA Financial Calculators 2026
         </h1>
         <p className="text-gray-600 mb-10 max-w-2xl">
-          Free tools for understanding living costs, comparing cities, and planning your salary in the United States.
+          {CALCULATORS.length} free tools for understanding living costs, comparing cities, planning salaries, and building wealth.
         </p>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {CALCULATORS.map(calc => (
